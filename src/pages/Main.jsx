@@ -11,7 +11,7 @@ const Main = () => {
     const [score, setScore] = React.useState(0);
 
     const generateRandomColor = () => {
-        let randomColor = (Math.random() * 0xfffff * 16777216).toString(16);
+        let randomColor = (Math.random() * 0xfffff * 10000000).toString(16);
         return "#" + randomColor.slice(0, 6).toUpperCase();
     }
 
@@ -27,10 +27,11 @@ const Main = () => {
         setTimeout(() => {
             setIsLoading(false);
         }, 1000);
+
     }
 
     const handleChoice = (clickedColor) => {
-        if (clickedColor == color) {
+        if (clickedColor === color) {
             setIsCorrect(true);
             setIsChoiceMade(true);
             setScore(score + 1);
@@ -68,11 +69,11 @@ const Main = () => {
                 <h1>Hex Color Game</h1>
                 <h3>Guess The Color</h3>
 
-                {isLoading ? <div class="loading-spinner"><div></div><div></div><div></div><div></div></div> :
+                {isLoading ? <div className="loading-spinner"><div></div><div></div><div></div><div></div></div> :
                     <div className="color-div" style={{ backgroundColor: `${color}` }}></div>}
 
                 <div className="buttons-div">
-                    {(colorOptions & !isChoiceMade & color != "none" & color != undefined) && colorOptions.map(c => {
+                    {(colorOptions && !isChoiceMade && color !== "none") && colorOptions.map(c => {
                         return (
                             <button className="choice-btn" key={c} onClick={() => handleChoice(c)}>{c}</button>
                         )
