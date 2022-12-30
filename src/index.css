@@ -11,3 +11,136 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-div{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 22px;
+}
+
+.sidebar-div{
+  height: 100%;
+  width: 25vw; 
+  position: fixed; 
+  z-index: 1; 
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.sidebar-div > span{
+  padding: 6px 8px 6px 16px;
+  font-size: 3vw;
+  color: #ffe600;
+  display: block;
+}
+
+.color-div{
+  width: 45vh;
+  height: 25vh;
+  border: solid 1px;
+}
+
+.buttons-div{
+  margin: 2%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-width: 45vw;
+}
+
+.choice-btn{
+  margin: 5%;
+  height: 5vh;
+  width: 50%;
+  font-size: calc(100% + 5px);
+  border-radius: 10px;
+  border: none;
+}
+.choice-btn:hover{
+  cursor: pointer;
+  background-color: rgb(72, 0, 255);
+  color: white;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.answer-div{
+  font-size: 32px;
+  text-align: center;
+  font-weight: 700;
+  align-self: center;
+}
+
+.again-btn{
+  cursor: pointer;
+  background-color: rgb(234, 237, 233);
+  color: rgb(0, 0, 0);
+  height: 5vh;
+  width: 25vw;
+  margin-top: 15%;
+  font-size: 85%;
+  border-radius: 10px;
+  border: none;
+}
+
+.again-btn:hover{
+  cursor: pointer;
+  background-color: rgb(72, 0, 255);
+  color: white;
+  border-radius: 12px;
+  transition: 0.5s;
+}
+
+/*LOADING SPINNER*/
+.loading-spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loading-spinner div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: spinner-frames 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.loading-spinner div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.loading-spinner div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.loading-spinner div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes spinner-frames {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* MEDIA QUERY */
+@media only screen and (max-width: 1220px) {
+  .main-div{
+    margin: 10vw;
+  }
+  .sidebar-div{
+    background-color: transparent;
+    top: 1.5vh;
+  }
+  .sidebar-div > span{
+    font-size:4vw;
+  }
+}
